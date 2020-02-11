@@ -1,0 +1,79 @@
+
+
+<%- include("../partials/header") %>
+<div class="container" style='margin-top: 2em;'>
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">Our camps</p>
+      <div class="list-group">
+        <div class="list-group-item active">info 1</div>
+        <div class="list-group-item">info 2</div>
+        <div class="list-group-item">info 3</div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail" style='justify-content: center;display: flex;flex-flow: column;'>
+        <img src=<%= data.image %> class="img-responsive" style='height: auto;width: 100%;' alt="">
+        <div class="caption-full">
+          <div class="d-flex justify-content-between">
+            <h4><a href=""><%= data.title %></a></h4>
+            <h4 class="">9.00$/day</h4>
+          </div>
+          
+          <p><%= data.desc %></p>
+          <p><em>SUBMITED BY <%= data.author.username %></em></p>
+        </div>
+      </div>
+      <div class="well">
+        <div class="text-right card border-dark mb-3">
+          <div class="card-header" style=''>
+            <a href="/camp/<%= data.id %>/comments/new" class="btn btn-outline-success">Add new comments</a>
+          </div>
+          <div class="card-body">
+            <% data.comments.map((el)=>{ %>
+              <div class="row">
+                <div class="col-md-12">
+  
+  
+                  <div class="card bg-light mb-3" style="">
+                    <div class="card-header" style='justify-content: space-between;display: flex;'>
+                      <strong><%= el.author.username%></strong>
+               
+                      
+                      <span class="pull-right">10 day ago</span>
+                      <% if(userId && userId._id.equals(el.author.id)) { %>  <!-- userId мы передали из мидлВаре в АПП во все роуты по умолчанию (req,res,next)=>{   -->
+                        
+                        <div class="" style='display: flex;'>
+                          <a href="/camp/<%= data.id %>/comments/<%= el.id %>/edit" class="btn btn-outline-warning mr-1">Edit comment</a>
+                          <form style="display: inline;" action="/camp/<%= data.id %>/comments/<%= el.id %>?_method=DELETE" method="post">
+                            <button class='btn btn-outline-danger'>DELETE comment</button>
+                          </form>
+                        </div>
+                      <% } %>
+                      
+
+                    </div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title">Light card title</h5> -->
+                      <p class="card-text"><%= el.text%></p>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+              
+            <% })%>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+       
+
+
+<%- include("../partials/footer") %>

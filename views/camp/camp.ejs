@@ -1,0 +1,54 @@
+
+<%- include("../partials/header") %>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">My Camp list</h1>
+    <!-- <p class="lead">Это простой пример блока с компонентом в стиле jumbotron для привлечения дополнительного внимания к содержанию или информации.</p> -->
+    <hr class="my-4">
+    <!-- <p>Использются служебные классы для типографики и расстояния содержимого в контейнере большего размера.</p> -->
+    <p class="lead">
+
+      <a class="btn btn-primary btn-lg" href="/camp/new" role="button">Add new camp</a>
+    </p>
+</div>
+
+
+
+<p>list camp:</p>
+
+
+    
+    <% data.map((el)=>{ %>
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src=<%= el.image %> class="card-img" alt="..sdsd.">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <a href=<%= `/camp/${el.id}` %> class="card-title"><%= el.title %></a>
+                  <p class="card-text"><%= el.desc %></p>
+                
+                      
+                  <% if(userId && userId._id.equals(el.author.id)) {  %>  <!-- userId мы передали из мидлВаре в АПП во все роуты по умолчанию (req,res,next)=>{   -->
+                      
+                      <a href="/camp/<%= el.id %>/edit" class="btn btn-outline-warning">Edit camp</a>
+                      <form style="display: inline;" action="/camp/<%= el.id %>?_method=DELETE" method="post">
+                        <button class='btn btn-outline-danger'>DELETE camp</button>
+                      </form>
+                    <% } %>
+                 
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        <div>
+           
+        
+    <% })  %>
+
+    <%- include("../partials/footer") %>
+</div>

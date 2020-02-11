@@ -1,0 +1,28 @@
+
+<%- include("../partials/header") %>
+<div class="container ">
+<h1 style="text-align: center;margin-top: 1em;display: block;">REGISTER FORM</h1>
+
+
+
+<form action="/register" method="POST" style="width: 50%; margin: 0 auto;">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Username</label>
+      <input type="text"  name='username' class="form-control" >
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="text"  name='password' class="form-control" >
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br/>
+    <a href="/camp" style="margin-top: 1em; display: block;">Go to camp</a>
+  </form>
+ 
+
+
+<%- include("../partials/footer") %>
+</div>

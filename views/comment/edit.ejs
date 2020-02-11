@@ -1,0 +1,20 @@
+<%- include("../partials/header") %>
+<div class="container ">
+<h1 style="text-align: center;margin-top: 1em;display: block;">Edit <%= %>comments <%= data.author.username %></h1>
+
+
+<form action="/camp/<%= campId %>/comments/<%= data.id %>?_method=PUT" method="POST" style="width: 50%; margin: 0 auto;">
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Text</label>
+      <input type="text" required name='comment[text]' class="form-control" value="<%= data.text %>">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br/>
+    <a href="/camp/<%= campId %>" style="margin-top: 1em; display: block;">Go back</a>
+  </form>
+ 
+
+
+<%- include("../partials/footer") %>
+</div>

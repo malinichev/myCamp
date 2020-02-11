@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+<div class="container ">
+<h1 style="text-align: center;margin-top: 1em;display: block;">add new comments for <%= data.title %></h1>
+
+
+
+<form action="/camp/<%= data.id %>/comments" method="POST" style="width: 50%; margin: 0 auto;">
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Text</label>
+      <input type="text" required name='text' class="form-control" >
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br/>
+    <a href="/camp/<%= data.id %>" style="margin-top: 1em; display: block;">Go back</a>
+  </form>
+ 
+
+
+<%- include("../partials/footer") %>
+</div>
