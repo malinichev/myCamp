@@ -36,7 +36,7 @@ app.use(flash());  //1. чтобы использовать флеш сообщ�
 
 const MONGO_USERNAME = 'serg';
 const MONGO_PASSWORD = '31415926535Ss';
-const MONGO_HOSTNAME = 'localhost';
+const MONGO_HOSTNAME = 'mongo';
 const MONGO_PORT = '27017';
 const MONGO_DB = 'campDB';
 
