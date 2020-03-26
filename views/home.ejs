@@ -1,3 +1,25 @@
 <%- include("partials/header") %>
-<h1>home page</h1>
-<a href="/camp">go to camp list</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+<section class='homepageSection'>
+    <img src="./2754229.svg" alt="">
+    <div class='myContainer'>
+        <h1 class="logo" >TO START</h1>
+        <h3 class="logo" >click</h3>
+        <span class="logo" >|</span>
+        
+            
+            <a class="logo" href="/camp">to My list</a>
+        
+        
+    </div>
+    
+    
+</section>
+
+<script>
+    gsap.from(".logo", {duration: 1, opacity: 0, stagger: 0.2, ease: "bounce"});
+    gsap.from(".logo", {delay:0.5, duration: 1, y: -10, stagger: 0.2, ease: "bounce"});
+
+</script>
+
